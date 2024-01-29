@@ -12,7 +12,7 @@ enum Lunch {
 fn cafeteria_worker(name: &str, orders: Receiver<&str>, lunches: Sender<Lunch>) {
     for order in orders {
         println!("{} receives an order for {}", name, order);
-        let lunch = match &order {
+        let lunch = match order {
             x if x.contains("soup") => Lunch::Soup,
             x if x.contains("salad") => Lunch::Salad,
             x if x.contains("sandwich") => Lunch::Sandwich,
